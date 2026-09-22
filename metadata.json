@@ -1,0 +1,6 @@
+{
+  "name": "NOX4 | Sistema de Crescimento para Empresas",
+  "description": "A NOX4 conecta estratégia, aquisição, vendas, tecnologia e gestão para estruturar o crescimento de empresas.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
