@@ -38,3 +38,218 @@
 ::-webkit-scrollbar-thumb:hover {
   background: #334155;
 }
+
+/* ========================================================
+   CINEMATIC HERO & VIDEO ANIMATIONS
+   ======================================================== */
+@keyframes heroVideoSlowZoom {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+.hero-video-zoom {
+  animation: heroVideoSlowZoom 24s ease-in-out infinite alternate;
+  will-change: transform;
+}
+
+/* Progressive Hero Entrance Animations */
+@keyframes heroFadeUp {
+  0% {
+    opacity: 0;
+    transform: translateY(24px) scale(0.98);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+.animate-hero-badge {
+  opacity: 0;
+  animation: heroFadeUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) 0.15s forwards;
+}
+
+.animate-hero-headline-1 {
+  opacity: 0;
+  animation: heroFadeUp 0.85s cubic-bezier(0.16, 1, 0.3, 1) 0.35s forwards;
+}
+
+.animate-hero-headline-2 {
+  opacity: 0;
+  animation: heroFadeUp 0.85s cubic-bezier(0.16, 1, 0.3, 1) 0.55s forwards;
+}
+
+.animate-hero-sub {
+  opacity: 0;
+  animation: heroFadeUp 0.9s cubic-bezier(0.16, 1, 0.3, 1) 0.75s forwards;
+}
+
+.animate-hero-cta {
+  opacity: 0;
+  animation: heroFadeUp 0.9s cubic-bezier(0.16, 1, 0.3, 1) 0.95s forwards;
+}
+
+.animate-hero-diagram {
+  opacity: 0;
+  animation: heroFadeUp 1s cubic-bezier(0.16, 1, 0.3, 1) 0.6s forwards;
+}
+
+/* ========================================================
+   SCROLL REVEAL UTILITY CLASSES (IntersectionObserver)
+   ======================================================== */
+.fade-up,
+.fade-down,
+.fade-left,
+.fade-right,
+.scale-in,
+.zoom-in {
+  opacity: 0;
+  transition-property: opacity, transform;
+  transition-duration: 800ms;
+  transition-timing-function: cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: opacity, transform;
+}
+
+.fade-up {
+  transform: translateY(32px);
+}
+
+.fade-down {
+  transform: translateY(-32px);
+}
+
+.fade-left {
+  transform: translateX(-36px);
+}
+
+.fade-right {
+  transform: translateX(36px);
+}
+
+.scale-in {
+  transform: scale(0.94);
+}
+
+.zoom-in {
+  transform: scale(0.90) translateY(16px);
+}
+
+/* When in view */
+.fade-up.is-revealed,
+.fade-down.is-revealed,
+.fade-left.is-revealed,
+.fade-right.is-revealed,
+.scale-in.is-revealed,
+.zoom-in.is-revealed {
+  opacity: 1;
+  transform: translate(0, 0) scale(1);
+}
+
+/* Stagger delay helpers */
+.delay-100 { transition-delay: 100ms; }
+.delay-150 { transition-delay: 150ms; }
+.delay-200 { transition-delay: 200ms; }
+.delay-250 { transition-delay: 250ms; }
+.delay-300 { transition-delay: 300ms; }
+.delay-400 { transition-delay: 400ms; }
+.delay-500 { transition-delay: 500ms; }
+.delay-600 { transition-delay: 600ms; }
+
+/* ========================================================
+   PREMIUM CARD MICRO-INTERACTIONS
+   ======================================================== */
+.interactive-card {
+  transition: transform 350ms cubic-bezier(0.16, 1, 0.3, 1),
+              border-color 350ms ease,
+              box-shadow 350ms ease,
+              background-color 350ms ease;
+  will-change: transform, box-shadow;
+}
+
+.interactive-card:hover {
+  transform: translateY(-4px) scale(1.012);
+  border-color: rgba(56, 189, 248, 0.4);
+  box-shadow: 0 16px 36px -8px rgba(30, 64, 175, 0.25),
+              0 0 20px -3px rgba(56, 189, 248, 0.15);
+}
+
+/* Depth elements & glowing lines */
+@keyframes ambientDrift {
+  0% {
+    transform: translate(0, 0) scale(1);
+  }
+  50% {
+    transform: translate(25px, -15px) scale(1.06);
+  }
+  100% {
+    transform: translate(0, 0) scale(1);
+  }
+}
+
+.ambient-orb {
+  animation: ambientDrift 18s ease-in-out infinite alternate;
+  will-change: transform;
+}
+
+@keyframes pulseSheen {
+  0%, 100% {
+    opacity: 0.3;
+  }
+  50% {
+    opacity: 0.65;
+  }
+}
+
+.pulse-sheen {
+  animation: pulseSheen 4s ease-in-out infinite;
+}
+
+/* ========================================================
+   ACCESSIBILITY: prefers-reduced-motion
+   ======================================================== */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+
+  .hero-video-zoom,
+  .ambient-orb,
+  .pulse-sheen,
+  .animate-hero-badge,
+  .animate-hero-headline-1,
+  .animate-hero-headline-2,
+  .animate-hero-sub,
+  .animate-hero-cta,
+  .animate-hero-diagram {
+    animation: none !important;
+    opacity: 1 !important;
+    transform: none !important;
+  }
+
+  .fade-up,
+  .fade-down,
+  .fade-left,
+  .fade-right,
+  .scale-in,
+  .zoom-in {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+  }
+
+  .interactive-card:hover {
+    transform: none !important;
+  }
+}

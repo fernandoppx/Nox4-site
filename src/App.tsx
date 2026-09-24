@@ -9,9 +9,13 @@ import { Footer } from './components/Footer';
 import { DiagnosticModal } from './components/DiagnosticModal';
 import { MobileStickyCTA } from './components/MobileStickyCTA';
 import { FloatingWhatsApp } from './components/FloatingWhatsApp';
+import { useGlobalScrollReveal } from './hooks/useScrollReveal';
 
 export function App() {
   const [isModalOpen, setIsModalOpen] = useState(false);
+
+  // Initialize IntersectionObserver scroll animations across all sections
+  useGlobalScrollReveal();
 
   const handleOpenDiagnostic = () => {
     const el = document.getElementById('diagnostico');
