@@ -44,18 +44,15 @@
    ======================================================== */
 @keyframes heroVideoSlowZoom {
   0% {
-    transform: scale(1);
-  }
-  50% {
-    transform: scale(1.05);
+    transform: scale(1.03);
   }
   100% {
-    transform: scale(1);
+    transform: scale(1.08);
   }
 }
 
 .hero-video-zoom {
-  animation: heroVideoSlowZoom 24s ease-in-out infinite alternate;
+  animation: heroVideoSlowZoom 20s ease-in-out infinite alternate;
   will-change: transform;
 }
 

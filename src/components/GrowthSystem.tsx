@@ -121,7 +121,6 @@ export const GrowthSystem: React.FC = () => {
         {/* Central Core: CRESCIMENTO */}
         <div className="p-6 sm:p-8 rounded-2xl bg-gradient-to-r from-blue-950/70 via-[#0F172A] to-blue-950/70 border border-blue-500/50 text-center shadow-[0_0_50px_rgba(30,64,175,0.3)] max-w-xl mx-auto interactive-card fade-up delay-500">
           <div className="inline-flex items-center gap-2 text-xs font-mono text-sky-400 font-bold uppercase tracking-widest mb-1.5">
-            <Sparkles className="w-4 h-4 animate-pulse" />
             <span>No Centro do Sistema</span>
           </div>
           <div className="text-2xl sm:text-3xl font-black text-white font-montserrat uppercase tracking-tight">
